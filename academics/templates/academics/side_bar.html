@@ -1,0 +1,16 @@
+ <ul class="list-group notice-bar " >
+        <ul class="list-group list-group-flush" >
+            <li  class="list-group-item text-danger notice" style="margin-bottom:30px;"><i class="fa fa-bullhorn"></i>&nbsp;Notice Board</li>
+    </ul>
+        {% for notice in side_bar_notices %}
+
+    <div class="card notice-card">
+        <div class="card-body">
+            <h5 class="card-title">{{notice.heading}}</h5>
+            <p class="text-muted"><em>Posted on : </em>{{notice.date_posted|date:"F d, Y"}}</p>
+            <a href="{{notice.get_absolute_url}}" class="btn btn-primary">View Notice</a>
+        </div>
+    </div>
+    {% endfor %}
+
+</ul>

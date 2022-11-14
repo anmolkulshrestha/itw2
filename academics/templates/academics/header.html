@@ -1,0 +1,116 @@
+{% load static %}
+<div class="login-banner mb-3">
+    <div class="left">
+       <a href=""><i class="fa fa-phone ml-5" aria-hidden="true"></i>01-828837342</a>
+        <a href="mailto: info@itbhu.ac.in" target="_blank"> <i class="fa fa-envelope" aria-hidden="true"></i>info@itbhu.ac.in</a>
+        <a href="https://www.google.com/maps/place/Indian+Institute+of+Technology+(BHU)+Varanasi/@25.2623125,82.9871238,17z/data=!3m1!4b1!4m5!3m4!1s0x398e33ef9b1f7cdd:0x7555db6d623dc140!8m2!3d25.2623125!4d82.9893125" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"></i>Varanasi, 221005</a>
+    </div>
+        <div class="right">
+            {% if request.user.is_authenticated %}
+              <a class="" href="{% url 'logout' %}"><i class="fa fa-sign-in" aria-hidden="true"></i> Logout </a>
+              <a class="" href="{% url 'student_home' %}"><i class="fa fa-sign-in" aria-hidden="true"></i> Profile </a>
+            {% else %}
+              <a class="" href="{% url 'login' %}"><i class="fa fa-sign-in" aria-hidden="true"></i> Login </a>
+            {% endif %}
+          </div>
+</div>
+
+
+  <div class="logo mt-2">
+
+        <a class="navbar-brand" href="/"><img class="logo" src="{% static 'academics/images/logo.png' %}" alt=""></a>
+
+  </div>
+
+ <nav class="navbar navbar-expand-lg navbar-light">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto links mt-4">
+          <li class="nav-item">
+              <a class="nav-link" href="/">Home </a>
+         </li>
+           <li class="nav-item">
+              <a class="nav-link" href="{% url 'facility' %}">Facilities </a>
+         </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Programs
+            </a>
+            <ul class="dropdown-menu drop-links">
+                {% for program in programs %}
+               <li class="dropdown-item">
+                   <a class="dropdown-item" href=" {{program.get_absolute_url}}">
+                       {% if current_program.name == program.name%}
+                        <span class="text-muted">{{program.name}}</span>
+                       {% else %}
+                       <span >{{program.name}}</span>
+                       {% endif %}
+                   </a>
+                </li>
+                {% endfor %}
+             </ul>
+        </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Admission
+              </a>
+            <ul class="dropdown-menu">
+               <li class="dropdown-item">
+                   <a class="dropdown-item" href="{% url 'scholarship' %}">Scholarships</a>
+               </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="{% url 'notices' %}">Notice </a>
+         </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'contact_us' %}">Contact </a>
+          </li>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              User
+            </a>
+            <ul class="dropdown-menu drop-links">
+               <li class="dropdown-item">
+                   <a class="dropdown-item" href=" {% url 'student_home' %}">
+                        <span class="text-muted">Profile</span>
+                   </a>
+                </li>
+               <li class="dropdown-item">
+                   <a class="dropdown-item" href=" {% url 'grades' %}">
+                        <span class="text-muted">Result</span>
+                   </a>
+                </li>
+               <li class="dropdown-item">
+                   <a class="dropdown-item" href=" {% url 'attendance' %}">
+                        <span class="text-muted">Attendance</span>
+                   </a>
+                </li>
+               <li class="dropdown-item">
+                   <a class="dropdown-item" href=" {% url 'classes' %}">
+                        <span class="text-muted">Classes</span>
+                   </a>
+                </li>
+               <li class="dropdown-item">
+                   <a class="dropdown-item" href=" {% url 'logout' %}">
+                        <span class="text-muted">Logout</span>
+                   </a>
+                </li>
+             </ul>
+        </li>
+         {% endif %}
+          <li class="nav-item lg-hidden">
+               <a class="nav-link text-info" href="{% url 'login' %}"><i class="fa fa-sign-in" aria-hidden="true"></i> Login </a>
+          </li>
+
+      </ul>
+    </div>
+  </nav>
+
+
+

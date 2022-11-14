@@ -1,0 +1,54 @@
+{% extends 'academics/base.html' %}
+
+{% block content %}
+   <h2 class="navy heading">Roll No: {{roll}}</h2>
+
+   <div class="course-structure mt-5">
+        <p class="pb-3 heading">Grades Semester Wise</p>
+       <div id="accordion">
+         {% for value in data %}
+         {% if value.credits %}
+        <div class="card mb-3">
+          <div class="card-header" id="">
+            <h5 class="mb-0">
+              <button class="btn btn-link btn-black" data-toggle="collapse" data-target="#collapse{{value.sem}}" aria-expanded="false" aria-controls="collapse{{value.sem}}">
+                Semester-{{value.sem}}
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapse{{value.sem}}" class="collapse show" aria-labelledby="{{value.sem}}" data-parent="#accordion">
+            <div class="card-body">
+
+                <table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Grade</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in value.field %}
+    <tr>
+      <td>{{item.subject.code}}</td>
+      <td>{{item.subject.name}}</td>
+      <td>{{item.grade}}</td>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+  <p>Total Credits: {{ value.credits }}</p>
+                </table>
+
+            </div>
+          </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+       </div>
+   </div>
+
+{% endblock %}
+

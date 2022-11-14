@@ -1,0 +1,146 @@
+*{
+  padding: 0;
+  margin : 0;
+  box-sizing : border-box;
+  font-family : 'Lora', serif;
+}
+
+img{
+   max-width: 100%;
+}
+.nav-link{
+    text-transform: titlecase;
+    font-family: 'Raleway';
+    font-size: 1em;
+    font-weight: bold;
+ }
+
+  .navbar{
+    position: sticky;
+    top:0;
+    z-index: 1;
+    box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+    background: #fff;
+
+
+
+}
+
+.container{
+    margin-top: 50px;
+    text-align: justify;
+    margin-bottom: 10px;
+
+}
+.gallery-container{
+   margin-bottom: 30px;
+}
+
+.image-div{
+    padding:2%;
+}
+
+.image-div img{
+   width:100%;
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+.dropdown .dropdown-toggle:active {
+    pointer-events: none;
+}
+.date{
+ font-size:1em;
+
+}
+.para{
+    font-size: 1.1em;
+    color:#707070;
+    margin-bottom:40px;
+
+}
+
+.para-image{
+    margin-top:10px;
+    margin-bottom: 10px;
+}
+
+.notice{
+    font-size:1.8em;
+    font-weight: 500;
+}
+
+.notice-bar a{
+  font-size : 1.1em;
+}
+.notice-card{
+  margin-bottom:30px;
+}
+.btn-black{
+  color: #000;
+  text-decoration : none;
+}
+.btn-black:hover{
+  color:navy;
+  text-decoration : none;
+}
+
+.navy{
+  color:navy;
+
+}
+.heading{
+  letter-spacing:0.05em;
+  font-weight:bold;
+}
+
+.white{
+  color: white;
+}
+
+tr{
+  text-align:center;
+}
+.header{
+    background:navy;
+    color: white;
+}
+
+.left{
+    float:left;
+}
+.right{
+    float:right;
+}
+.logo{
+   margin:0 auto;
+   text-align:center;
+}
+.links{
+    margin : 0 auto;
+}
+.login-banner {
+  padding:10px;
+  background: #000035;
+  overflow: auto;
+  display: none;
+}
+.login-banner a{
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  margin-right: 12px;
+  font-family: 'Raleway';
+}
+
+.login-banner .left a i{
+    margin-right: 7px;
+
+}
+.login-banner .right a i{
+    margin-right: 1px;
+
+}
+.login-banner a:hover{
+   font-weight: bold;
+}

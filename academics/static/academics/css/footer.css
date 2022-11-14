@@ -1,0 +1,22 @@
+
+footer{
+    margin-top : 50px;
+    padding:60px;
+    background-color: #000035;;
+    color:#fff;
+
+}
+footer ul li, footer ul li a{
+   font-family: 'Open Sans';
+
+}
+.footer-text{
+   text-align:center;
+   font-family: 'Open Sans';
+
+  }
+  .footer-heading{
+  font-size: 1.3em;
+  letter-spacing: 0.01em;
+  font-family: 'Open Sans';
+}

@@ -1,0 +1,40 @@
+  <footer>
+      <div class="container">
+          <div class="row">
+              <div class="col-6 col-sm-6 col-lg-3 div-center">
+                 <p class="footer-heading">College</p>
+                 <ul style="list-style:none;">
+                  <li><a class="text-muted" href="{% url 'index' %}">Home</a></li>
+                  <li><a class="text-muted" href="{% url 'facility' %}">Facilities</a></li>
+                  <li><a class="text-muted" href="">Admission</a></li>
+                   <li><a class="text-muted" href="{% url 'about_us' %}">About Us</a></li>
+                 </ul>
+
+              </div>
+              <div class="col-6 col-sm-6 col-lg-3 div-center">
+                <p class="footer-heading">Academics</p>
+                 <ul style="list-style:none;">
+                  <li><a class="text-muted" href="{% url 'index' %}">Programs</a></li>
+                  <li><a class="text-muted" href="{% url 'scholarship' %}">Scholarships</a></li>
+                  <li><a class="text-muted" href="{% url 'notices' %}">Notices</a></li>
+                     <li><a class="text-muted" href="{% url 'facility' %}">Facilities</a></li>
+                 </ul>
+
+              </div>
+               <div class="mbl-margin col-sm-6 col-lg-3 div-center">
+                 <p class="footer-heading">Find Us</p>
+                 <ul style="list-style:none;">
+                 <li class="text-muted"> <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;01-828837342 </li>
+                 <li class="text-muted"> <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;info@itbhu.ac.in</li>
+                  <li class="text-muted"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Varanasi, 221005</li>
+                 </ul>
+
+              </div>
+              </div>
+          </div>
+      </div>
+
+
+
+        <p class="footer-text pt-5 text-muted">Copyright {% now 'Y' %} &copy; Indian Institute of Technology - BHU(Varanasi)</p>
+  </footer>

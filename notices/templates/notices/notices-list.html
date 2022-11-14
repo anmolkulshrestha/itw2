@@ -1,0 +1,61 @@
+{% extends 'academics/base.html' %}
+
+{% block content %}
+ <h2 class="navy heading mb-5">Notices</h2>
+  {% for notice in notices %}
+
+<div class="card notice-card">
+    <div class="card-body">
+        <h5 class="card-title">{{notice.heading}}</h5>
+        <p class="text-muted"><em>Posted on : </em>{{notice.date_posted|date:"F d, Y"}}</p
+         <p class="card-text">{{notice.body}}</p>
+          <p class="text-muted">Posted by : {{notice.author}}</p>
+
+        <a href="{{notice.get_absolute_url}}" class="btn btn-primary">View Notice</a>
+  </div>
+</div>
+ {% endfor %}
+
+
+{% if notices.has_other_pages %}
+<nav class="mt-5" >
+  <ul class="pagination">
+      {% if notices.has_previous %}
+          <li class="page-item">
+            <a href="{% url 'notices' %}?page={{notices.previous_page_number}}" class="page-link">Previous</a>
+         </li>
+      {% else %}
+      <li class="page-item disabled">
+            <span class="page-link">Previous</span>
+       </li>
+      {% endif %}
+
+      {% for i in notices.paginator.page_range %}
+        {% if notices.number == i %}
+        <li class="page-item active">
+            <span class="page-link ">{{i}}  <span class="sr-only">(current)</span></span>
+        </li>
+        {% else %}
+        <li class="page-item">
+            <a class="page-link"
+               href="{% url 'notices' %}?page={{i}}">{{i}}</a>
+        </li>
+      {% endif %}
+      {% endfor %}
+
+      {% if notices.has_next %}
+          <li class="page-item">
+            <a href="{% url 'notices' %}?page={{notices.next_page_number}}" class="page-link">Next</a>
+         </li>
+      {% else %}
+       <li class="page-item disabled">
+            <span class="page-link">Next</span>
+       </li>
+      {% endif %}
+  </ul>
+</nav>
+{% endif    %}
+{% endblock %}
+
+{% block side-bar %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'academics/base.html' %}
+{% load static %}
+{% block content %}
+<br><br>
+<center>
+  <h1>Welcome to your profile</h1>
+  <h3>Name: {{student.name}}</h3>
+  <h3>Roll: {{student.roll}}</h3>
+  <h3>phone: {{student.phone}}</h3>
+  <h3>Email: {{student.email}}</h3>
+  <h3>Address: {{student.address}}</h3>
+  <h3>program: {{student.program}}</h3>
+  <h3>Semester: {{student.sem}}</h3>
+  <br>
+    <p>To change any of the info contact administration</p>
+    <p>phone: 9988776655</p>
+</center>
+{% endblock %}

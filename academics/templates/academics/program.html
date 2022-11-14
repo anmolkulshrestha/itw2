@@ -1,0 +1,63 @@
+{% extends 'academics/base.html' %}
+
+{% block content %}
+   <h2 class="navy heading">{{current_program.name}}</h2>
+
+  {% if current_program.desc %}
+   <div class="course-desc mt-5">
+       <p class="heading">Course Description</p>
+       <p class="para">{{current_program.desc}}</p>
+   </div>
+ {% endif %}
+
+   <div class="course-structure mt-5">
+        <p class="pb-3 heading">Course Structure</p>
+       <div id="accordion">
+
+         {% for semester in current_program.semester_set.all %}
+
+
+        <div class="card mb-3">
+          <div class="card-header" id="">
+            <h5 class="mb-0">
+              <button class="btn btn-link btn-black" data-toggle="collapse" data-target="#collapse{{semester.sem}}" aria-expanded="false" aria-controls="collapse{{semester.sem}}">
+               {{semester.program.name}} -  {{semester.get_meaningful_name}} Semester
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapse{{semester.sem}}" class="collapse show" aria-labelledby="{{semester.sem}}" data-parent="#accordion">
+            <div class="card-body">
+
+                <table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Credits</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    {% for subject in semester.subjects.all%}
+    <tr>
+
+      <td>{{subject.code}}</td>
+      <td>{{subject.name}}</td>
+      <td>{{subject.credit}}</td>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+                </table>
+
+            </div>
+          </div>
+        </div>
+
+        {% endfor %}
+       </div>
+   </div>
+
+{% endblock %}
+
